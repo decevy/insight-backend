@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -44,7 +45,7 @@ public class InsightService {
         insight = insightRepository.save(insight);
 
         // Process concept associations
-        if (request.getConcepts() != null && !request.getConcepts().isEmpty()) {
+        if (!CollectionUtils.isEmpty(request.getConcepts())) {
             for (CreateInsightRequest.ConceptAssociationRequest conceptReq : request.getConcepts()) {
                 Concept concept = findOrCreateConcept(conceptReq.getConceptName());
 
