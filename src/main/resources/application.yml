@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/truth_db
+    url: jdbc:postgresql://localhost:5432/duality_db
     username: postgres
     password: Ed0verlo.narva
     driver-class-name: org.postgresql.Driver
